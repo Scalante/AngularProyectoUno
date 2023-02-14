@@ -13,7 +13,7 @@ export class UsuarioService {
 
   constructor(private http: HttpClient) {
     this.myAppUrl = environment.endpoint;
-    this.myApiUrl = '/api/Usuario';
+    this.myApiUrl = '/api/usuario';
    }
 
   saveUser(usuario: Usuario): Observable<any>{
