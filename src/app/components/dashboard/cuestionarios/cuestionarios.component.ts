@@ -12,7 +12,6 @@ export class CuestionariosComponent implements OnInit {
   nombreUsuario!: string;
 
   constructor(private loginService: LoginService) {
-
   }
 
   ngOnInit(): void {
