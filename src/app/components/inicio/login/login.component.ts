@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
         this.toastr.error(err.error.message, 'Error!');
         this.login.reset();
       }
-    })
+    });
     // setTimeout(() => {
     //   if (usuario.nombreUsuario === 'user' && usuario.password === 'admin') {
     //     this.login.reset();

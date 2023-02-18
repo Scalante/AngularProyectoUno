@@ -2,12 +2,12 @@ import { Respuesta } from './respuesta'
 
 export class Pregunta {
     descripcion: string;
-    listRespuesta: Respuesta[];
+    listRespuestas: Respuesta[];
     hide?: boolean;
 
-    constructor(descripcion: string, listRespuesta: Respuesta[]) {
+    constructor(descripcion: string, listRespuestas: Respuesta[]) {
         this.descripcion = descripcion;
-        this.listRespuesta = listRespuesta;
+        this.listRespuestas = listRespuestas;
         this.hide = true;
     }
 }

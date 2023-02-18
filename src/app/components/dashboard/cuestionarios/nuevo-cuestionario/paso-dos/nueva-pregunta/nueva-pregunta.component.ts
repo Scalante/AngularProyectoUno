@@ -90,6 +90,7 @@ export class NuevaPreguntaComponent implements OnInit {
   }
 
   reset(): void {
+    this.respuestaCorrecta = 0;
     this.nuevaPregunta.reset();
     this.getRespuestas.clear();
     this.agregarRespuestaPorDefecto();

@@ -11,9 +11,13 @@ import { CuestionarioService } from 'src/app/services/cuestionario.service';
   styleUrls: ['./paso-dos.component.css']
 })
 export class PasoDosComponent implements OnInit {
+  //Propiedades
   tituloCuestionario!: string;
   descripcionCuestionario!: string;
   listPreguntas: Pregunta[] = [];
+
+  //Variables
+  loading = false;
 
   constructor(private cuestionarioService: CuestionarioService,
     private toastr: ToastrService,
@@ -37,7 +41,23 @@ export class PasoDosComponent implements OnInit {
       nombre: this.tituloCuestionario,
       descripcion: this.descripcionCuestionario,
       listPreguntas: this.listPreguntas
-    }
+    };
+
+    this.loading = true;
+    //Enviamos cuestionario al back-end
+    this.cuestionarioService.guardarCuestionario(cuestionario).subscribe({
+      next: data => {
+        this.toastr.success('El cuestionario fue registrado con éxito', 'Cuestionario Registrado');
+        this.router.navigate(['/dashboard']);
+        this.loading = false;
+      },
+      error: err => {
+        this.toastr.error("Opps... Ocurriço un error", 'Error!');
+        this.router.navigate(['/dashboard']);
+        this.loading = false;
+      }
+    });
+
   }
 
 }
